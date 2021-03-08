@@ -26,7 +26,7 @@ using UnityEditor;
 
 
 /// <summary>
-/// A wrapper that provides the means to safely serialize Scene Asset References.
+/// A wrapper  that provides the means to safely serialize Scene Asset References.
 /// </summary>
 [System.Serializable]
 public class SceneReference : ISerializationCallbackReceiver
