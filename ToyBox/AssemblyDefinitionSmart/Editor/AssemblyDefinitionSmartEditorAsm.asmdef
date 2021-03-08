@@ -1,0 +1,1 @@
+{"name":"AssemblyDefinitionSmartEditorAsm", "references":[ "AssemblyDefinitionSmartAsm" ], "includePlatforms":[ "Editor" ], "excludePlatforms":[  ]}

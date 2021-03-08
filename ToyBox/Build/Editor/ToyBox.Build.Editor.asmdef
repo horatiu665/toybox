@@ -1,0 +1,18 @@
+{
+    "name": "ToyBox.Build.Editor",
+    "references": [
+        "ToyBox.Build",
+        "ToyBox.Build.SkijumpShit.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
