@@ -7,8 +7,11 @@ using System.Linq;
 public class Spawner : MonoBehaviour
 {
 	public Transform[] spawnWhat;
+	
 	public int howMany = 1;
+	
 	public float spawnRadius = 10;
+	
 	[Range(1, 1.999f)]
 	public float variousSizes = 1;
 	// Finds the furthest away position compared to all other objects.
