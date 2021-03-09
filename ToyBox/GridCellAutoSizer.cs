@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// Resizes cells in a grid to match parent grid width/height.
+/// </summary>
 [ExecuteAlways]
 public class GridCellAutoSizer : MonoBehaviour
 {

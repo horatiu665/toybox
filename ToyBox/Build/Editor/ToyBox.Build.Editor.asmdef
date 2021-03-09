@@ -1,9 +1,6 @@
 {
     "name": "ToyBox.Build.Editor",
-    "references": [
-        "ToyBox.Build",
-        "ToyBox.Build.SkijumpShit.Editor"
-    ],
+    "references": [],
     "includePlatforms": [
         "Editor"
     ],

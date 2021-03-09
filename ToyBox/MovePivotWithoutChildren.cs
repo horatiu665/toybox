@@ -1,38 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using Random = UnityEngine.Random;
-
-[ExecuteInEditMode]
-public class MovePivotWithoutChildren : MonoBehaviour
+namespace ToyBox
 {
-    public bool update = false;
-    public Vector3 prevPos;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+    using UnityEngine;
+    using Random = UnityEngine.Random;
 
-    private void Reset()
+    [ExecuteAlways]
+    public class MovePivotWithoutChildren : MonoBehaviour
     {
-        prevPos = transform.position;
-    }
+        public bool update = false;
+        public Vector3 prevPos;
 
-    void Update()
-    {
-        if (update)
-            DoIt();
-
-    }
-
-    private void DoIt()
-    {
-        var delta = transform.position - prevPos;
-
-        for (int i = 0; i < transform.childCount; i++)
+        private void Reset()
         {
-            transform.GetChild(i).position -= delta;
+            prevPos = transform.position;
         }
 
-        prevPos = transform.position;
+        void Update()
+        {
+            if (update)
+                DoIt();
+
+        }
+
+        private void DoIt()
+        {
+            var delta = transform.position - prevPos;
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).position -= delta;
+            }
+
+            prevPos = transform.position;
+
+        }
 
     }
-
 }

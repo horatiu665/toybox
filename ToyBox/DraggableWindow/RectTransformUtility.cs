@@ -1,4 +1,4 @@
-﻿namespace DraggableWindowHHH
+﻿namespace ToyBox.DraggableWindowHHH
 {
     using UnityEngine;
     using System.Collections;
@@ -15,7 +15,7 @@
         public static void KeepInsideScreen(RectTransform rektTransform, Canvas canvas)
         {
 
-            // drag target rect is in CANVAS SHITTY SPACE. WE MUST CONVERT TO SCREEN SPACE to use Screen.width and Screen.height.
+            // drag target rect is in CANVAS SPACE. WE MUST CONVERT TO SCREEN SPACE to use Screen.width and Screen.height.
             var rect = rektTransform.rect;
             var rectScreen = new Rect(CanvasSpaceToScreenPosition(rect.position, canvas), CanvasSpaceToScreenPosition(rect.size, canvas));
 

@@ -1,51 +1,55 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class FakeParenting : MonoBehaviour
+﻿namespace ToyBox
 {
-    public Transform fakeParent;
+    using UnityEngine;
+    using System.Collections;
 
-    public bool pos = true, rot = true;
-
-    public bool update = true, fixedUpdate, lateUpdate;
-
-    private void DoIt()
+    public class FakeParenting : MonoBehaviour
     {
-        if (fakeParent == null)
-        {
-            return;
-        }
-        if (pos)
-        {
-            transform.position = fakeParent.position;
-        }
-        if (rot)
-        {
-            transform.rotation = fakeParent.rotation;
-        }
-    }
+        [Header("Move pos/rot to this target object")]
+        public Transform fakeParent;
 
-    void Update()
-    {
-        if (update)
-        {
-            DoIt();
-        }
-    }
+        public bool pos = true, rot = true;
 
-    void FixedUpdate()
-    {
-        if (fixedUpdate)
-        {
-            DoIt();
-        }
-    }
+        public bool update = true, fixedUpdate, lateUpdate;
 
-    void LateUpdate()
-    {
-        if (lateUpdate)
+        private void DoIt()
         {
-            DoIt();
+            if (fakeParent == null)
+            {
+                return;
+            }
+            if (pos)
+            {
+                transform.position = fakeParent.position;
+            }
+            if (rot)
+            {
+                transform.rotation = fakeParent.rotation;
+            }
+        }
+
+        void Update()
+        {
+            if (update)
+            {
+                DoIt();
+            }
+        }
+
+        void FixedUpdate()
+        {
+            if (fixedUpdate)
+            {
+                DoIt();
+            }
+        }
+
+        void LateUpdate()
+        {
+            if (lateUpdate)
+            {
+                DoIt();
+            }
         }
     }
 }

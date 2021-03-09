@@ -6,7 +6,6 @@ namespace AssemblyDefinitionSmart
     using System.IO;
     using System.Linq;
     using UnityEditor;
-    using Random = UnityEngine.Random;
     using UnityEngine;
     using SimpleJSON;
 
@@ -75,39 +74,50 @@ namespace AssemblyDefinitionSmart
 
             var allAsmdefs = GetAllAsmdefFilesInProject();
 
-            // if an asmdef exists in this folder, give error and stop.
+            // find the root asmdef file name (default)
+            string mainAsmFileName = GetAsmdefName(path, allAsmdefs);
+
+            // if an asmdef exists in this folder, do not make it again.
+            bool foundAsmdefInRoot = false;
             var dirInfo = new DirectoryInfo(path);
             var files = dirInfo.GetFiles();
             if (files.Any(f => f.Extension == ".asmdef"))
             {
-                var file = files.First(f => f.Extension == ".asmdef");
-                // remove the first bit of the path = the path to the game folder.
-                var filePathHehe = "Assets/" + file.FullName.Substring(Application.dataPath.Length);
-                var contextObj = AssetDatabase.LoadAssetAtPath(filePathHehe, typeof(UnityEngine.Object));
-                Debug.Log(TAG + " Error: AssemblyDefinition " + file.Name + " already exists for " + path, contextObj);
+                var fileWithAsmdefExtension = files.First(f => f.Extension == ".asmdef");
+                // update the file name, to use as reference for all new children created asmdefs.
+                mainAsmFileName = fileWithAsmdefExtension.Name.Substring(0, fileWithAsmdefExtension.Name.Length - ".asmdef".Length);
 
-                // why doesn't this work? no idea.
-                EditorGUIUtility.PingObject(contextObj);
-                return;
+                // remove the first bit of the path = the path to the game folder.
+                var asmdefPathFromGameFolder = "Assets/" + fileWithAsmdefExtension.FullName.Substring(Application.dataPath.Length);
+                var contextObj = AssetDatabase.LoadAssetAtPath(asmdefPathFromGameFolder, typeof(UnityEngine.Object));
+                Debug.Log(TAG + " Note: AssemblyDefinition " + fileWithAsmdefExtension.Name + " already exists for " + path, contextObj);
+
+                // used to return but now it should just try to make asmdefs for the subfolders 
+                //// why doesn't this work? no idea.
+                //EditorGUIUtility.PingObject(contextObj);
+                //return;
+                foundAsmdefInRoot = true;
             }
 
-            // create json structure
-            var mainAsmFile = new JSONClass();
-            // add name
-            var mainAsmFileName = GetAsmdefName(path, allAsmdefs);
-            mainAsmFile.Add("name", new JSONData(mainAsmFileName));
-            // add build target thingies (default to all)
-            // add dependencies to other assembly files
+            if (!foundAsmdefInRoot)
+            {
+                // create json structure
+                var mainAsmFile = new JSONClass();
+                // add name
+                mainAsmFile.Add("name", new JSONData(mainAsmFileName));
+                // add build target thingies (default to all)
+                // add dependencies to other assembly files?...
 
-            var finalPath = GetAsmdefFinalPath(path, mainAsmFileName);
-            SaveContentsToFile(mainAsmFile.ToString(), finalPath);
+                var finalPath = GetAsmdefFinalPath(path, mainAsmFileName);
+                SaveContentsToFile(mainAsmFile.ToString(), finalPath);
 
-            allAsmdefs.Add(new FileInfo(finalPath));
+                allAsmdefs.Add(new FileInfo(finalPath));
+            }
 
-            // navigate children folders, do this for all editor folders and shit, except when an ASMDEF file was found in the folder - then do not continue checking
+            // navigate children folders, do this for all editor folders, except when an ASMDEF file was found in the folder - then do not continue checking
             CreateEditorAssembliesForChildFoldersRecursive(path, mainAsmFileName, allAsmdefs);
 
-            // refrsh database in unity
+            // refresh database in unity
             AssetDatabase.Refresh();
         }
 
@@ -168,7 +178,7 @@ namespace AssemblyDefinitionSmart
         private static string GetAsmdefName(string dirPath, List<FileInfo> allAsmdefs)
         {
             DirectoryInfo dirInfo;
-            string aName = ""; 
+            string aName = "";
             if (Directory.Exists(dirPath))
             {
                 dirInfo = new DirectoryInfo(dirPath);
@@ -197,7 +207,7 @@ namespace AssemblyDefinitionSmart
             var suffix = "";
             int suffixCounter = 0;
             // find unique name for Asm file.
-            while (allAsmdefs.Any(f => f.Name == aName + suffix))
+            while (allAsmdefs.Any(f => f.Name == (aName + suffix) + ".asmdef"))
             {
                 suffixCounter++;
                 suffix = suffixCounter.ToString();

@@ -1,8 +1,10 @@
-﻿using UnityEditor;
-using UnityEngine;
-
-namespace Chinchillada.DefaultAsset
+﻿// Snatched from Chinchillada.DefaultAsset
+// Gets reference to first object in project that appears when searching for the referenced type.
+namespace ToyBox.DefaultAsset
 {
+    using UnityEditor;
+    using UnityEngine;
+
     [CustomPropertyDrawer(typeof(DefaultAssetAttribute))]
     public class DefaultAssetDrawer : PropertyDrawer
     {
@@ -13,8 +15,8 @@ namespace Chinchillada.DefaultAsset
             if (property.objectReferenceValue != null)
                 return;
 
-            var defaultAssetAttribute = (DefaultAssetAttribute) attribute;
-            var defaultAsset = (Object) defaultAssetAttribute.GetDefaultAsset(fieldInfo.FieldType);
+            var defaultAssetAttribute = (DefaultAssetAttribute)attribute;
+            var defaultAsset = (Object)defaultAssetAttribute.GetDefaultAsset(fieldInfo.FieldType);
 
             property.objectReferenceValue = defaultAsset;
         }

@@ -3,23 +3,33 @@ using UnityEngine;
 
 public class ScreenFlash : MonoBehaviour
 {
-    [Header("Put this on the camera")]
+    private static ScreenFlash _instance;
+    public static ScreenFlash instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<ScreenFlash>();
+            }
+            return _instance;
+        }
+    }
 
-    static ScreenFlash instance;
+    [Header("Put this on the camera")]
+    public bool ok;
+
     Texture2D solidColor;
     Color color = Color.white;
     float flashTimer = 0;
     float flashTimerDuration = 1;
 
-    void Start()
+    void Awake()
     {
-        instance = this;
         solidColor = new Texture2D(1, 1);
         SetTextureColor(color, 1);
-
     }
 
-    // Use this for initialization
     void SetTextureColor(Color color, float alpha)
     {
         color.a = alpha;

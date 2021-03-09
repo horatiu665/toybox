@@ -36,7 +36,7 @@ public class SmartSound : MonoBehaviour
         }
         _audio.playOnAwake = false;
         _audio.spatialBlend = 1f;
-        _audio.dopplerLevel = 0.2f;
+        _audio.dopplerLevel = 0f;
 
     }
 

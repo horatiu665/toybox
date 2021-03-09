@@ -1,13 +1,16 @@
-﻿using System;
-using UnityEngine;
-
-public class EnumButtonsAttribute : PropertyAttribute
+﻿namespace ToyBox.EnumButtons
 {
-    // should the enum be treated as flags or not?
-    public bool isFlags = false;
+    using System;
+    using UnityEngine;
 
-    public EnumButtonsAttribute(bool flags = false)
+    public class EnumButtonsAttribute : PropertyAttribute
     {
-        isFlags = flags;
+        // should the enum be treated as flags or not?
+        public bool isFlags = false;
+
+        public EnumButtonsAttribute(bool flags = false)
+        {
+            isFlags = flags;
+        }
     }
 }

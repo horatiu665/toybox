@@ -1,3 +1,13 @@
+// Snatched from Kaae.DebugButton and improved by HHH
+
+// uncomment this line if you have name overlapping problems with another DebugButton
+//#define TOYBOX_DEBUG_BUTTON_NAMESPACE
+
+#if TOYBOX_DEBUG_BUTTON_NAMESPACE
+namespace ToyBox
+{
+#endif
+
 using System;
 
 /// <summary>
@@ -8,3 +18,7 @@ using System;
 public sealed class DebugButtonAttribute : Attribute
 {
 }
+
+#if (TOYBOX_DEBUG_BUTTON_NAMESPACE)
+}
+#endif

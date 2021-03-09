@@ -1,4 +1,4 @@
-namespace DraggableWindowHHH
+namespace ToyBox.DraggableWindowHHH
 {
     using System;
     using System.Collections;
@@ -69,6 +69,7 @@ namespace DraggableWindowHHH
         public bool canTakeOffScreen = false;
         public bool setAnchorsToZeroZero = true;
 
+        [Header("Do in update? 0 or more. No? -1.")]
         public int keepInScreenUpdateFrames = -1;
 
         public float minDragForDraggingInScreenPercent = 0.03f;

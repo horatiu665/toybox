@@ -56,7 +56,7 @@ public class Spawner : MonoBehaviour
 
 	void Randomize(int s)
 	{
-		Random.seed = s;
+		Random.InitState(s);
 	}
 
 	void Start()

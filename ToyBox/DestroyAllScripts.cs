@@ -1,29 +1,35 @@
-using UnityEngine;
-using System.Collections;
-
-[ExecuteInEditMode]
-public class DestroyAllScripts : MonoBehaviour
+namespace ToyBox
 {
-    public bool doIt;
+    using UnityEngine;
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
 
-    void Update()
+    [ExecuteAlways]
+    public class DestroyAllScripts : MonoBehaviour
     {
-        if (doIt) {
-            doIt = false;
-            IrreversibleDelete();
+        [DebugButton]
+        void IrreversibleDelete()
+        {
+            DeleteRecursive(transform);
         }
-    }
 
-    void IrreversibleDelete()
-    {
-        DeleteRecursive(transform);
-    }
+        void DeleteRecursive(Transform parent)
+        {
+#if UNITY_EDITOR
+            Undo.IncrementCurrentGroup();
+            Undo.SetCurrentGroupName("Destroy All Scripts @" + parent);
+            var undoGroupIndex = Undo.GetCurrentGroup();
 
-    void DeleteRecursive(Transform parent)
-    {
-        foreach (var gg in GetComponentsInChildren<MonoBehaviour>()) {
-            if (gg != this)
-                DestroyImmediate(gg);
+            foreach (var gg in GetComponentsInChildren<MonoBehaviour>())
+            {
+                if (gg != this)
+                    Undo.DestroyObjectImmediate(gg);
+                //DestroyImmediate(gg);
+            }
+            Undo.CollapseUndoOperations(undoGroupIndex);
+#endif
         }
+
     }
 }

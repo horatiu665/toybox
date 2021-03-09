@@ -1,14 +1,16 @@
-﻿using System;
-using System.Linq;
-using UnityEngine;
+﻿// Snatched from Chinchillada.DefaultAsset
+// Gets reference to first object in project that appears when searching for the referenced type.
+namespace ToyBox.DefaultAsset
+{
+    using System;
+    using System.Linq;
+    using UnityEngine;
 
 #if UNITY_EDITOR
-    
-using UnityEditor;
-
+    using UnityEditor;
 #endif
-namespace Chinchillada.DefaultAsset
-{
+
+
     [AttributeUsage(AttributeTargets.Field)]
     public class DefaultAssetAttribute : PropertyAttribute
     {
@@ -36,5 +38,6 @@ namespace Chinchillada.DefaultAsset
             return null;
 #pragma warning restore 162
         }
+
     }
 }
