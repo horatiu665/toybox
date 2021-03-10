@@ -2,8 +2,10 @@ using UnityEngine;
 using System;
 using System.Collections;
 
-public class pTween
+public static class pTween
 {
+    // Further tweaked by HHH ~2015-2021
+
     // Peter's Tweening Library.
     // Written by Peter Bruun-Rasmussen (http://www.bipbipspil.dk).
 
@@ -101,5 +103,41 @@ public class pTween
         callback();
         // in case frames == 0
         yield break;
+    }
+
+
+    public static IEnumerator Then(this IEnumerator coroutine, IEnumerator after)
+    {
+        while (coroutine.MoveNext())
+        {
+            yield return coroutine.Current;
+        }
+
+        while (after.MoveNext())
+        {
+            yield return after.Current;
+        }
+    }
+
+    public static IEnumerator Then(this IEnumerator coroutine, Action after)
+    {
+        while (coroutine.MoveNext())
+        {
+            yield return coroutine.Current;
+        }
+
+        after();
+    }
+
+    public static IEnumerator Then(this IEnumerator coroutine, float delay, Action after)
+    {
+        while (coroutine.MoveNext())
+        {
+            yield return coroutine.Current;
+        }
+
+        yield return new WaitForSeconds(delay);
+
+        after();
     }
 }

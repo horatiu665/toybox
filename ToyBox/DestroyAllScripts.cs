@@ -9,7 +9,7 @@ namespace ToyBox
     public class DestroyAllScripts : MonoBehaviour
     {
         [DebugButton]
-        void IrreversibleDelete()
+        void DestroyWithUndo()
         {
             DeleteRecursive(transform);
         }
