@@ -1,4 +1,4 @@
-namespace AssemblyDefinitionSmart
+namespace ToyBoxHHH.AssemblyDefinitionSmart
 {
     using System;
     using System.Collections;
@@ -9,6 +9,14 @@ namespace AssemblyDefinitionSmart
     using UnityEngine;
     using SimpleJSON;
 
+    /// <summary>
+    /// Use this to automatically create Assembly Definition files in your project. Makes separate assemblies in Editor/ folders, and references upwards.
+    /// 
+    /// Note: it is not THAT smart that it could identify cross-referencing assemblies. For that you must identify and reference the dependencies by hand.
+    /// However, this does save some time when you have a complex structure with a lot of editor folders inside other folders.
+    /// 
+    /// made by @horatiu665
+    /// </summary>
     public static class AssemblyDefinitionSmart
     {
         private const string TAG = "[AssemblyDefinitionSmart] ";

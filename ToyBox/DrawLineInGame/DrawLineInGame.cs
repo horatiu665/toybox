@@ -1,4 +1,4 @@
-namespace ToyBox
+namespace ToyBoxHHH
 {
     using System;
     using System.Collections;
@@ -6,6 +6,15 @@ namespace ToyBox
     using System.Linq;
     using UnityEngine;
 
+    /// <summary>
+    /// A super useful debug script for VR and mobile platforms, where Debug.DrawLine is nonexisting.
+    /// 
+    /// Usage: DrawLineInGame.DrawVisibleGizmo(position, direction, color) - this one stays forever but you can destroy it yourself. 
+    ///     you also have the pooled option, or an auto-destroy with a delay
+    ///     and you also have the option to pass a condition for not destroying it, such as when an error happens, or while holding some kind of debug key if you want to inspect something closely.
+    ///     
+    /// made by @horatiu665
+    /// </summary>
     public class DrawLineInGame : MonoBehaviour
     {
         private const string TAG = "[DrawLineInGame] ";

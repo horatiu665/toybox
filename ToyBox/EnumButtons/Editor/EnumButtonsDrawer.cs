@@ -1,4 +1,4 @@
-﻿namespace ToyBox.EnumButtons.Editor
+﻿namespace ToyBoxHHH.EnumButtons.Editor
 {
     using System;
     using System.Collections;
@@ -13,6 +13,8 @@
     /// For longer enums consider using <see cref="EnumLongSelectionAttribute"/>
     /// 
     /// Inspired from http://www.sharkbombs.com/2015/02/17/unity-editor-enum-flags-as-toggle-buttons/
+    /// 
+    /// made by @horatiu665
     /// </summary>
     [CustomPropertyDrawer(typeof(EnumButtonsAttribute))]
     public class EnumButtonsDrawer : PropertyDrawer

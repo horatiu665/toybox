@@ -1,4 +1,4 @@
-namespace ToyBox.ReadOnlyUtil.Editor
+namespace ToyBoxHHH.ReadOnlyUtil.Editor
 {
     using UnityEditor;
     using UnityEngine;

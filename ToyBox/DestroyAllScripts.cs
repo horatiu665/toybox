@@ -1,13 +1,21 @@
-namespace ToyBox
+namespace ToyBoxHHH
 {
     using UnityEngine;
 #if UNITY_EDITOR
     using UnityEditor;
 #endif
 
+    /// <summary>
+    /// When you wanna export a prefab from Unity but don't want the entire script hierarchy, it's useful to delete all the scripts on it first. This utility does just that.
+    /// Slap it on a GameObject and click the button.
+    /// 
+    /// made by @horatiu665
+    /// </summary>
     [ExecuteAlways]
     public class DestroyAllScripts : MonoBehaviour
     {
+        public bool removeSelf = false;
+
         [DebugButton]
         void DestroyWithUndo()
         {
@@ -27,6 +35,12 @@ namespace ToyBox
                     Undo.DestroyObjectImmediate(gg);
                 //DestroyImmediate(gg);
             }
+
+            if (removeSelf)
+            {
+                Undo.DestroyObjectImmediate(this);
+            }
+
             Undo.CollapseUndoOperations(undoGroupIndex);
 #endif
         }

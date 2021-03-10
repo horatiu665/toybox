@@ -1,8 +1,13 @@
-﻿namespace ToyBox.DraggableWindowHHH
+﻿namespace ToyBoxHHH.DraggableWindowHHH
 {
     using UnityEngine;
     using System.Collections;
 
+    /// <summary>
+    /// A dirty little script that makes it a little easier to work with RectTransforms and Canvas-space and stuff.
+    /// 
+    /// made by @horatiu665
+    /// </summary>
     public static class RectTransformUtility
     {
 

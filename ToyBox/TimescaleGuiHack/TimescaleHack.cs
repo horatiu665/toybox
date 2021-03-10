@@ -1,4 +1,4 @@
-namespace ToyBox.TimescaleHack
+namespace ToyBoxHHH.TimescaleHack
 {
     using System.Collections;
     using System.Collections.Generic;
@@ -8,6 +8,8 @@ namespace ToyBox.TimescaleHack
 
     /// <summary>
     /// Makes a little slider using OnGUI() for changing the Time.timeScale. Useful for debugging various things.
+    /// 
+    /// made by @horatiu665
     /// </summary>
     public class TimescaleHack : MonoBehaviour
     {

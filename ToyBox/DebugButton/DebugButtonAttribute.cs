@@ -1,6 +1,7 @@
 // Snatched from Kaae.DebugButton and improved by HHH
 
-// uncomment this line if you have name overlapping problems with another DebugButton
+// namespace ignored by default for easy access to the [DebugButton] shorthand
+// uncomment this #define line if you have name overlapping problems with another DebugButton
 //#define TOYBOX_DEBUG_BUTTON_NAMESPACE
 
 #if TOYBOX_DEBUG_BUTTON_NAMESPACE

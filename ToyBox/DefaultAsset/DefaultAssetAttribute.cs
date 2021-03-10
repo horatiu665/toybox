@@ -1,6 +1,6 @@
 ﻿// Snatched from Chinchillada.DefaultAsset
 // Gets reference to first object in project that appears when searching for the referenced type.
-namespace ToyBox.DefaultAsset
+namespace ToyBoxHHH.DefaultAsset
 {
     using System;
     using System.Linq;

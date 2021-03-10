@@ -1,8 +1,15 @@
-namespace ToyBox.Build.Editor
+namespace ToyBoxHHH.Build.Editor
 {
     using UnityEditor;
     using UnityEngine;
 
+    /// <summary>
+    /// A window that can help build a project to a new platform, bypassing the extra click for "Switch Platforms".
+    /// It can be also used as a reference for how to do build scripts, and if you clone it you can extend with your own pre-build operations,
+    ///     like disabling some game objects, generating stuff before build, enabling scenes, or whatever.
+    ///     
+    /// made by @horatiu665 and Rami Ahmed Bock cca 2018
+    /// </summary>
     public static partial class BuildScriptPrefs
     {
         private readonly static string _projectKey = PlayerSettings.productName;

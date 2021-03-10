@@ -1,4 +1,4 @@
-﻿namespace ToyBox.HoratiusQuickOrganizer.Editor
+﻿namespace ToyBoxHHH.HoratiusQuickOrganizer.Editor
 {
     using UnityEngine;
     using UnityEditor;
@@ -7,6 +7,15 @@
     using UnityEditor.Animations;
     using System.Linq;
 
+    /// <summary>
+    /// Makes order from chaos, can also make chaos. 
+    /// 
+    /// Only moves files around, but note that it might screw up stuff if files are named the same and if old folders for some reason disappear...... etc
+    /// 
+    /// Use at own risk
+    /// 
+    /// made by @horatiu665
+    /// </summary>
     public class HoratiusQuickOrganizer : EditorWindow
     {
         // Add menu named "My Window" to the Window menu

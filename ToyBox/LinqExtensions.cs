@@ -1,10 +1,11 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Linq;
-using System.Collections.Generic;
-
-namespace System.Linq
+﻿namespace ToyBoxHHH
 {
+    using System;
+    using System.Linq;
+    using System.Collections;
+    using System.Collections.Generic;
+    using UnityEngine;
+
     public static class LinqExtensions
     {
         /// <summary>

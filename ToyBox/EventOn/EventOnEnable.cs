@@ -1,4 +1,4 @@
-﻿namespace ToyBox
+﻿namespace ToyBoxHHH
 {
     using System;
     using System.Collections;
@@ -10,6 +10,8 @@
 
     /// <summary>
     /// Super useful quick n dirty way to do stuff in the scene by toggling objects.
+    /// 
+    /// made by @horatiu665
     /// </summary>
     public class EventOnEnable : MonoBehaviour
     {

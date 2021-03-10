@@ -1,8 +1,15 @@
-﻿namespace ToyBox
+﻿namespace ToyBoxHHH
 {
     using UnityEngine;
     using System.Collections;
 
+    /// <summary>
+    /// Useful when you wanna make a fake rope, or a hand, or something that points to something else.
+    /// Make an object that stretches for the desired length until a target.
+    /// Requires ref to <see cref="LookAtObj"/>
+    /// 
+    /// made by @horatiu665
+    /// </summary>
     public class ScaleBasedOnInitDistance : MonoBehaviour
     {
         public const float EPSILON = 0.001f;
@@ -21,6 +28,8 @@
             }
         }
 
+        public Transform target => lookAtObj.target;
+
         float initdist;
 
         Vector3 initScale;
@@ -28,13 +37,12 @@
         void Start()
         {
             initScale = transform.localScale;
-            initdist = Mathf.Max(EPSILON, (lookAtObj.target.position - transform.position).magnitude);
+            initdist = Mathf.Max(EPSILON, (target.position - transform.position).magnitude);
         }
 
-        // Update is called once per frame
         void Update()
         {
-            var curDist = (lookAtObj.target.position - transform.position).magnitude;
+            var curDist = (target.position - transform.position).magnitude;
             var scale = curDist / initdist;
             var ssss = initScale;
             ssss.z *= scale;

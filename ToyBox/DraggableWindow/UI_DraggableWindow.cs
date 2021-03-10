@@ -1,4 +1,4 @@
-namespace ToyBox.DraggableWindowHHH
+namespace ToyBoxHHH.DraggableWindowHHH
 {
     using System;
     using System.Collections;
@@ -8,6 +8,11 @@ namespace ToyBox.DraggableWindowHHH
     using UnityEngine.EventSystems;
     using Random = UnityEngine.Random;
 
+    /// <summary>
+    /// A dirty little script that makes a RectTransform draggable, and prevents it from being dragged outside the game window (if so desired).
+    /// 
+    /// made by @horatiu665
+    /// </summary>
     public class UI_DraggableWindow : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
         [Header("Ref to the transform that moves on drag")]

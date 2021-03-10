@@ -1,5 +1,4 @@
-// Snatched from Kaae.DebugButton and improved by HHH
-namespace ToyBox
+namespace ToyBoxHHH
 {
     using System;
     using System.Collections.Generic;
@@ -7,6 +6,8 @@ namespace ToyBox
     using System.Reflection;
     using UnityEditor;
     using UnityEngine;
+
+    // Snatched from Kaae.DebugButton and improved by HHH
 
     [CanEditMultipleObjects]
     [CustomEditor(typeof(MonoBehaviour), true)]

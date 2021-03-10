@@ -1,4 +1,4 @@
-namespace ToyBox.Build.Editor
+namespace ToyBoxHHH.Build.Editor
 {
     using System;
     using System.Collections.Generic;
@@ -8,6 +8,10 @@ namespace ToyBox.Build.Editor
     using UnityEditor.SceneManagement;
     using UnityEngine;
 
+    /// <summary>
+    /// 
+    /// made by @horatiu665 and Rami Ahmed Bock cca 2018
+    /// </summary>
     public static partial class BuildScripts
     {
         public static string gameName => PlayerSettings.productName;

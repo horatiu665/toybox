@@ -1,10 +1,13 @@
-﻿namespace ToyBox
+﻿namespace ToyBoxHHH
 {
     using System.Collections.Generic;
     using UnityEngine;
 
     public static class RandomUtil
     {
+        /// <summary>
+        /// Returns a random element from the list
+        /// </summary>
         public static T Random<T>(this IList<T> list)
         {
             return list[UnityEngine.Random.Range(0, list.Count)];

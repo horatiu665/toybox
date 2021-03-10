@@ -1,4 +1,4 @@
-namespace ToyBox
+namespace ToyBoxHHH
 {
     using UnityEngine;
     using System.Collections;
@@ -7,6 +7,18 @@ namespace ToyBox
 #if UNITY_EDITOR
     using UnityEditor;
 #endif
+
+    /// <summary>
+    /// Have you ever not done something in Unity just because you dreaded the amount of work it might take, only to wish there was a tool that could quickly do it for you?
+    /// If that thing was making a lot of prefabs at once, this tool is for you!
+    /// 
+    /// Create prefabs out of all children of a transform in the scene, or apply the changes made to those prefabs, with the click of a button.
+    ///     It even handles unique names by suffixing some numbers, if you have multiple children you want to make prefabs out of, and they share the same name.
+    /// Unity will work for a bit cause it's slow to update many prefabs at once, but while Unity does its compilation, you can watch a youtube funny cats compilation of your own!
+    ///     Ah, game development, what a riot!
+    /// 
+    /// made by @horatiu665
+    /// </summary>
     public class CreatePrefabsFromAllChildren : MonoBehaviour
     {
         public string path;

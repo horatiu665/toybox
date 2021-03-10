@@ -3,7 +3,7 @@
 #define USE_FileIO
 #endif
 
-namespace AssemblyDefinitionSmart
+namespace ToyBoxHHH.AssemblyDefinitionSmart
 {
     /* * * * *
      * A simple JSON Parser / builder
