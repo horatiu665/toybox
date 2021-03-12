@@ -45,7 +45,7 @@ namespace ToyBoxHHH
         }
 
         // see above
-        public static void DrawVisibleGizmo(Vector3 pos, Vector3 dir, Color color, float duration, Collider colliderHit = null)
+        public static void DrawVisibleGizmo(Vector3 pos, Vector3 dir, Color color, float duration, Collider colliderHit)
         {
             DrawVisibleGizmo(pos, dir, color, duration, null, colliderHit);
         }
@@ -96,10 +96,11 @@ namespace ToyBoxHHH
         {
             yield return new WaitForSeconds(minDur);
 
-            while (doNotDestroyCondition())
-            {
-                yield return 0;
-            }
+            if (doNotDestroyCondition != null)
+                while (doNotDestroyCondition())
+                {
+                    yield return 0;
+                }
             // the above condition is the equivalent of holding a key as long as you don't want the gizmo to be destroyed.
             //while (InputVR.GetPress(true, InputVR.ButtonMask.Touchpad) || InputVR.GetPress(false, InputVR.ButtonMask.Touchpad))
             //{
