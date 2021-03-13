@@ -7,16 +7,17 @@ namespace ToyBoxHHH
     using Random = UnityEngine.Random;
 
     /// <summary>
-    /// A honky script that helps you move a parent without moving the children.
+    /// A script that helps you move a parent without moving the children.
     /// Always useful when messing around with transform hierarchies.
+    /// Usage: add it to an object in the scene, move it, then disable the script or remove it, to be safe.
     /// 
     /// made by @horatiu665
     /// </summary>
     [ExecuteAlways]
     public class MovePivotWithoutChildren : MonoBehaviour
     {
-        public bool executeInEditMode = false;
-        public bool executeInPlayMode = false;
+        public bool executeInEditMode = true;
+        public bool executeInPlayMode = true;
 
         [Space]
         // update is false by default so the object you want to affect doesn't jump around as soon as you put the script on.
