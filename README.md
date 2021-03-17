@@ -113,7 +113,29 @@ Unity will work for a bit cause it's slow to update many prefabs at once, but it
 
 When exporting an object for sharing in another project, it can be useful to export without scripts, so that you can use Unity's built-in "Include Dependencies" checkmark on the export package screen. This script helps you remove all MonoBehaviours from an object so you don't have to do it by hand. Note: it doesn't always work as there are kinks to this export process, but it is a marginally-useful utility nonetheless.
 
+## FakeParenting
 
+A useful script that makes a transform follow another every update, with toggled position/rotation and update/fixedupdate/lateupdate. There are also smooth-follow versions out there, but sometimes you just need a simple reliable one.
+
+![image](https://user-images.githubusercontent.com/5824753/111475458-61dbb980-872d-11eb-8b96-9b460fc08f3a.png)
+
+## FlyCamExtended
+
+A version of the FlyCamExtended from this place: http://wiki.unity3d.com/index.php/FlyCam_Extended
+But with some added functionality such as lock cursor, holding Alt disables camera rotation (useful for edit-time tweaks and for recording footage of the game view while tweaking stuff), smooth acceleration, some more parameters in the Inspector.
+
+![image](https://user-images.githubusercontent.com/5824753/111475855-ceef4f00-872d-11eb-8394-6669c1344be4.png)
+
+## GridCellAutoSizer
+
+A UI script that can help with a basic functionality of grids: you want them to look like an evenly spaced grid independent of the size of the parent of the grid, and covering the whole width. It only makes  Well here you go!
+
+![grid shitz](https://user-images.githubusercontent.com/5824753/111481364-2ba13880-8733-11eb-829c-f9bd7b656ec0.gif)
+
+
+
+
+## 
 
 # License
 MIT because you are welcome to use this stuff however you want, and credit is appreciated.
