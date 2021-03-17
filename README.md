@@ -100,6 +100,11 @@ Drop the TimescaleHack prefab in the scene (or the TimescaleHack.cs script on an
 
 ![timescale hack](https://user-images.githubusercontent.com/5824753/110973648-cc6fac80-835d-11eb-8537-f986c7356647.png)
 
+## ConeCastExtension
+
+Use it to cast a cone shape rather than a spherecast or boxcast.
+Doesn't work super well but it sort of works.
+
 ## CreatePrefabsFromAllChildren
 Have you ever not done something in Unity just because you dreaded the amount of work it might take, only to wish there was a tool that could quickly do it for you? If that thing was making a lot of prefabs at once, this tool is for you!
 
@@ -132,10 +137,23 @@ A UI script that can help with a basic functionality of grids: you want them to 
 
 ![grid shitz](https://user-images.githubusercontent.com/5824753/111481364-2ba13880-8733-11eb-829c-f9bd7b656ec0.gif)
 
+## LinqExtensions
+
+Some extensions of Linq queries that are typical for physics work in Unity, or whatnot.
+`ClosestRaycastHit` - find the nearest hit out of a list of RaycastHit
+`AggregateSmart` - a silly version of the Aggregate() to find one element that satisfies some condition when compared to all the other elements of a list (but ignoring nullable types when the list contains null stuff)
+`MaxIndex` - find the index of the max element, not the max value as Max() does
+`ClosestColliderBounds` and `ClosestCollider` and `ClosestTransform` - find the closest distance to one of those things out of a list of things
+
+... maybe more on the way, now that I have a place to put those things as I develop them.
+
+## LookAtObj 
+
+Simple script to make a transform point at another transform, with an option to point at the main camera without need of reference (and using a cached Camera.main for performance).
+
+![image](https://user-images.githubusercontent.com/5824753/111487292-84bf9b00-8738-11eb-9aa2-fb369946acb9.png)
 
 
-
-## 
 
 # License
 MIT because you are welcome to use this stuff however you want, and credit is appreciated.
