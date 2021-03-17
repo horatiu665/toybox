@@ -153,6 +153,98 @@ Simple script to make a transform point at another transform, with an option to 
 
 ![image](https://user-images.githubusercontent.com/5824753/111487292-84bf9b00-8738-11eb-9aa2-fb369946acb9.png)
 
+## MovePivotWithoutChildren
+
+Move a transform without moving the children in relation to the world space. Nifty for setting up prefabs or levels or grouping objects. Remember to turn it off if you want to move the root object again!
+
+![wop wop](https://user-images.githubusercontent.com/5824753/111503668-3d8cd680-8747-11eb-9b60-28fb18d6d235.gif)
+
+## NodeGizmo
+
+Draws a little colorful sphere gizmo. Useful when doing stuff like procedural generation, AI nodes, whatever uses objects that need to be visible in the scene view.
+Example: these are all node gizmos that represent different spawn locations, AI pathfinding nodes, and other things that were important to show in the scene. Editor only.
+
+![image](https://user-images.githubusercontent.com/5824753/111504410-ea675380-8747-11eb-9dab-41281078abab.png)
+
+## ParentToOnEnable
+
+Parent to object OnEnable. Leave null to set parent to null.
+Useful when you hack around with the hierarchy, could be extra useful in combination with FakeParenting
+Super useful when doing stuff with rigidbodies - rigidbody physics always more stable without parenting.
+
+![image](https://user-images.githubusercontent.com/5824753/111504107-a2483100-8747-11eb-96cf-4554c0ab2932.png)
+
+## PositionOnObject
+
+Position an object on another object using a raycast. Can be useful with procedural generation, or simple scene setup/level design.
+
+One of the oldest and least polished scripts in the ToyBox. Dates back to 2014 when I made Sheepy in Iceland.
+
+## pTween
+
+Snatched from https://github.com/ptrbrn/pTween
+Added a couple more interesting functions, like `pTween.Wait()`, `pTween.WaitFrames()`, `pTween.WaitFixedFrames()`, `pTween.WaitCondition()`
+
+Usage: 
+```
+    IEnumerator Sequence()
+    {
+        Vector3 p1 = new Vector3(0,0,0);
+        Vector3 p2 = new Vector3(0,10,0);
+    
+        yield return StartCoroutine(pTween.To(2f, t => { transform.position = Vector3.Lerp(p1, p2, t); }));
+    }
+```
+## RandomUtil
+
+A place for extensions to UnityEngine.Random
+
+## ScaleBasedOnInitDistance
+
+Useful when you wanna make a fake rope, or a hand/arm, or something that points to something else and has a line in between.
+Make an object that stretches for the desired length until a target.
+Requires LookAtObj.
+Used in #SelfieTennis for the unicorn arms/hands.
+
+![image](https://user-images.githubusercontent.com/5824753/111505141-9a3cc100-8748-11eb-9987-1974c1d4e836.png)
+![image](https://user-images.githubusercontent.com/5824753/111505595-13d4af00-8749-11eb-8753-32e514104cd4.png)
+
+## ScreenFlash
+
+Flashes a color and fades it out. Using `OnGUI()` and `GUI.DrawTexture()`
+
+![flash](https://user-images.githubusercontent.com/5824753/111507301-cd804f80-874a-11eb-8edb-3f29ef7a4aef.gif)
+
+
+## ScreenShake
+
+![shakkk](https://user-images.githubusercontent.com/5824753/111507315-d07b4000-874a-11eb-9f53-14c47ace2b3f.gif)
+
+
+## SmartSound
+
+A simple reliable wrapper for AudioSource that does things that I tend to use a lot. Random clips, uninterrupted, and initializing on Reset() with 3d spatial blend and no play on awake. Automatically adds and references AudioSource. A work in progress.
+
+![image](https://user-images.githubusercontent.com/5824753/111507672-2f40b980-874b-11eb-9519-a0eeec466dcd.png)
+
+
+## Spawner
+
+A spawner script with various utilities.
+
+![image](https://user-images.githubusercontent.com/5824753/111507909-6b741a00-874b-11eb-9775-5848c729d0b9.png)
+
+
+## ToggleChildren
+
+A useful script to toggle gameObject.activeSelf state between children of a transform. Useful for quick n dirty changes of the state of a thing, before you do some animation funk.
+
+![toggle children](https://user-images.githubusercontent.com/5824753/111506130-99585f00-8749-11eb-87eb-dc3cabab49b3.gif)
+
+
+## TransformExtensions
+
+An extension to get the direct descendant children of a transform and put them in a list.
 
 
 # License
