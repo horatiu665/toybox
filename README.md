@@ -100,7 +100,20 @@ Drop the TimescaleHack prefab in the scene (or the TimescaleHack.cs script on an
 
 ![timescale hack](https://user-images.githubusercontent.com/5824753/110973648-cc6fac80-835d-11eb-8537-f986c7356647.png)
 
-##
+## CreatePrefabsFromAllChildren
+Have you ever not done something in Unity just because you dreaded the amount of work it might take, only to wish there was a tool that could quickly do it for you? If that thing was making a lot of prefabs at once, this tool is for you!
+
+Create prefabs out of all children of a transform in the scene, or apply the changes made to existing prefabs parented under the same scene object, with the click of a button. It even handles unique names by suffixing some numbers, if you have multiple children you want to make prefabs out of, and they share the same name.
+
+Unity will work for a bit cause it's slow to update many prefabs at once, but it beats getting carpal tunnel syndrome from too many clicks! Here is demo with 4 prefabs but it can handle endless amounts.
+
+![prefabs stuff](https://user-images.githubusercontent.com/5824753/111464584-39e65900-8721-11eb-82af-8f9a2fefc887.gif)
+
+## DestroyAllScripts
+
+When exporting an object for sharing in another project, it can be useful to export without scripts, so that you can use Unity's built-in "Include Dependencies" checkmark on the export package screen. This script helps you remove all MonoBehaviours from an object so you don't have to do it by hand. Note: it doesn't always work as there are kinks to this export process, but it is a marginally-useful utility nonetheless.
+
+
 
 # License
 MIT because you are welcome to use this stuff however you want, and credit is appreciated.
