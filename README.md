@@ -128,7 +128,7 @@ But with some added functionality such as lock cursor, holding Alt disables came
 
 ## GridCellAutoSizer
 
-A UI script that can help with a basic functionality of grids: you want them to look like an evenly spaced grid independent of the size of the parent of the grid, and covering the whole width. It only makes  Well here you go!
+A UI script that can help with a basic functionality of grids: you want them to look like an evenly spaced grid independent of the size of the parent of the grid, and covering the whole width. It only works with constant cell count width/height but super useful for that. So here you go!
 
 ![grid shitz](https://user-images.githubusercontent.com/5824753/111481364-2ba13880-8733-11eb-829c-f9bd7b656ec0.gif)
 
