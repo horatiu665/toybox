@@ -6,6 +6,7 @@ namespace ToyBoxHHH
     using System.Linq;
 #if UNITY_EDITOR
     using UnityEditor;
+    using System.IO;
 #endif
 
     /// <summary>
@@ -31,7 +32,10 @@ namespace ToyBoxHHH
             {
                 var t = transform.GetChild(i);
 
-                PrefabUtility.SaveAsPrefabAssetAndConnect(t.gameObject, "Assets/" + path + "/" + t.gameObject.name + ".prefab", InteractionMode.UserAction);
+                var folderPath = "Assets/" + path + "/";
+                if (!Directory.Exists(folderPath))
+                    Directory.CreateDirectory(folderPath);
+                PrefabUtility.SaveAsPrefabAssetAndConnect(t.gameObject, folderPath + t.gameObject.name + ".prefab", InteractionMode.UserAction);
 
             }
         }

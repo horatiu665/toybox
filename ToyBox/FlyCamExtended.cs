@@ -8,6 +8,7 @@ namespace ToyBoxHHH
 
         /*
         FURTHER EXTENDED BY HHH / ~2015-2021
+            from http://wiki.unity3d.com/index.php/FlyCam_Extended
 
         EXTENDED FLYCAM
             Desi Quintans (CowfaceGames.com), 17 August 2012.

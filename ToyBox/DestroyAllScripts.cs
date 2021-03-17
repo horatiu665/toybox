@@ -29,7 +29,7 @@ namespace ToyBoxHHH
             Undo.SetCurrentGroupName("Destroy All Scripts @" + parent);
             var undoGroupIndex = Undo.GetCurrentGroup();
 
-            foreach (var gg in GetComponentsInChildren<MonoBehaviour>())
+            foreach (var gg in GetComponentsInChildren<MonoBehaviour>(true))
             {
                 if (gg != this)
                     Undo.DestroyObjectImmediate(gg);
