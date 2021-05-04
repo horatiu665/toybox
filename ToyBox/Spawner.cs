@@ -63,7 +63,15 @@
             {
                 if (instancesSpawned[i] != null)
                 {
-                    Destroy(instancesSpawned[i].gameObject);
+                    if (Application.isPlaying)
+                    {
+                        Destroy(instancesSpawned[i].gameObject);
+                    }
+                    else
+                    {
+                        DestroyImmediate(instancesSpawned[i].gameObject);
+                    }
+
                 }
             }
             instancesSpawned.Clear();
