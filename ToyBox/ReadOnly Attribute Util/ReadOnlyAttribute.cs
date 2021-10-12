@@ -1,14 +1,9 @@
 // Snatched from ...??? different places.
 
-// uncomment this line if you have name overlapping problems with another ReadOnlyAttribute
-//#define TOYBOX_READONLY_NAMESPACE
-
-#if TOYBOX_READONLY_NAMESPACE
-namespace ToyBox.ReadOnlyUtil
+namespace ToyBoxHHH.ReadOnlyUtil
 {
-#endif
 
-using System;
+	using System;
     using UnityEngine;
 
     /// <summary>
@@ -26,6 +21,4 @@ using System;
         }
     }
 
-#if TOYBOX_READONLY_NAMESPACE
 }
-#endif
