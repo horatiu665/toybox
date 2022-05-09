@@ -67,6 +67,8 @@ namespace ToyBoxHHH.DraggableWindowHHH
             }
         }
 
+        public event System.Action OnRealDragBegin, OnRealDragEnd;
+
         //[EnumButtons(true)]
         //public RewiredInputMan.InputSource allowDrag = RewiredInputMan.InputSource.Touch;
 
@@ -119,13 +121,21 @@ namespace ToyBoxHHH.DraggableWindowHHH
             _initDragPointerPos = eventData.position;
 
             if (minDragForDraggingInScreenPercent == 0)
+            {
                 _realIsDragging = true;
+                OnRealDragBegin?.Invoke();
+            }
             else
+            {
                 _realIsDragging = false;
+            }
+
         }
 
         void IDragHandler.OnDrag(PointerEventData eventData)
         {
+            bool realDragJustBegun = false;
+
             // drag begins only when dragging for a certain distance...
             if (!_realIsDragging)
             {
@@ -139,6 +149,8 @@ namespace ToyBoxHHH.DraggableWindowHHH
                 {
                     _realIsDragging = true;
                     _prevPointerPosition = eventData.position;
+
+                    realDragJustBegun = true;
                 }
             }
 
@@ -156,6 +168,12 @@ namespace ToyBoxHHH.DraggableWindowHHH
             {
                 this.KeepInsideScreen();
             }
+
+            // do the event once, but at the end of the drag function, so any movement is already applied.
+            if (realDragJustBegun)
+            {
+                OnRealDragBegin?.Invoke();
+            }
         }
 
         public void KeepInsideScreen()
@@ -165,7 +183,11 @@ namespace ToyBoxHHH.DraggableWindowHHH
 
         void IEndDragHandler.OnEndDrag(PointerEventData eventData)
         {
-            _realIsDragging = false;
+            if (_realIsDragging)
+            {
+                _realIsDragging = false;
+                OnRealDragEnd?.Invoke();
+            }
         }
     }
 
