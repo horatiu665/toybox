@@ -53,6 +53,7 @@
                 // calcu the width
                 var w = gridSize.x;
                 w -= grid.spacing.x * (grid.constraintCount - 1);
+                w -= grid.padding.left + grid.padding.right;
 
                 w /= grid.constraintCount;
 
@@ -62,6 +63,7 @@
             {
                 var h = gridSize.y;
                 h -= grid.spacing.y * (grid.constraintCount - 1);
+                h -= grid.padding.top + grid.padding.bottom;
 
                 h /= grid.constraintCount;
 
