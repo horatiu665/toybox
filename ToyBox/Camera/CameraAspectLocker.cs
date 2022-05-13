@@ -29,7 +29,9 @@ namespace ToyBoxHHH
 
         [Header("Use math! 16 / 9 ~= 1.777")]
         public float minAspectRatio = 16f / 9;
+        private float prevMinAspect;
         public float maxAspectRatio = 21f / 9;
+        private float prevMaxAspect;
         public bool showAspectRatioOnGUI = false;
 
         [Header("When")]
@@ -55,11 +57,16 @@ namespace ToyBoxHHH
 
             if (onUpdate)
             {
-                if (prevScreenRes.x != Screen.width || prevScreenRes.y != Screen.height)
+                if (DetectChanges())
                 {
                     ResetAspect();
                 }
             }
+        }
+
+        private bool DetectChanges()
+        {
+            return prevScreenRes.x != Screen.width || prevScreenRes.y != Screen.height || (minAspectRatio != prevMinAspect) || (maxAspectRatio != prevMaxAspect);
         }
 
         private void Update_Editor()
@@ -67,7 +74,7 @@ namespace ToyBoxHHH
             // if it's the editor, and we have inEditor flag, we should update.
             if (inEditor)
             {
-                if (prevScreenRes.x != Screen.width || prevScreenRes.y != Screen.height)
+                if (DetectChanges())
                 {
                     ResetAspect();
                 }
@@ -122,6 +129,8 @@ namespace ToyBoxHHH
             }
 
             prevScreenRes = new Vector2(Screen.width, Screen.height);
+            prevMinAspect = minAspectRatio;
+            prevMaxAspect = maxAspectRatio;
         }
 
 #if UNITY_EDITOR
