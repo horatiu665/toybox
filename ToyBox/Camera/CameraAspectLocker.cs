@@ -10,6 +10,7 @@ namespace ToyBoxHHH
     // inspired by http://gamedesigntheory.blogspot.com/2010/09/controlling-aspect-ratio-in-unity.html
     // adjusted by @horatiu665
     // added min/max aspect ratio, and checks the delta of the resolution
+    [ExecuteAlways]
     public class CameraAspectLocker : MonoBehaviour
     {
         [SerializeField]
@@ -29,9 +30,11 @@ namespace ToyBoxHHH
         [Header("Use math! 16 / 9 ~= 1.777")]
         public float minAspectRatio = 16f / 9;
         public float maxAspectRatio = 21f / 9;
+        public bool showAspectRatioOnGUI = false;
 
         [Header("When")]
         public bool onUpdate = true;
+        public bool inEditor = true;
         private Vector2 prevScreenRes;
 
         private void Start()
@@ -42,7 +45,27 @@ namespace ToyBoxHHH
 
         private void Update()
         {
+#if UNITY_EDITOR
+            if (Application.isEditor && !Application.isPlaying)
+            {
+                Update_Editor();
+                return;
+            }
+#endif
+
             if (onUpdate)
+            {
+                if (prevScreenRes.x != Screen.width || prevScreenRes.y != Screen.height)
+                {
+                    ResetAspect();
+                }
+            }
+        }
+
+        private void Update_Editor()
+        {
+            // if it's the editor, and we have inEditor flag, we should update.
+            if (inEditor)
             {
                 if (prevScreenRes.x != Screen.width || prevScreenRes.y != Screen.height)
                 {
@@ -100,5 +123,18 @@ namespace ToyBoxHHH
 
             prevScreenRes = new Vector2(Screen.width, Screen.height);
         }
+
+#if UNITY_EDITOR
+        private void OnGUI()
+        {
+            if (showAspectRatioOnGUI)
+            {
+                //GUI.DrawTexture(0, 0, 200, )
+                float windowaspect = (float)Screen.width / (float)Screen.height;
+                GUI.Label(new Rect(0, 0, 200, 100), windowaspect.ToString());
+
+            }
+        }
+#endif
     }
 }
