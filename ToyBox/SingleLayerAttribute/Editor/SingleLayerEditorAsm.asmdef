@@ -1,1 +1,1 @@
-{"name":"SingleLayerEditorAsm", "references":[ ], "includePlatforms":[ "Editor" ], "excludePlatforms":[  ]}
+{"name":"SingleLayerEditorAsm", "references":[ "SingleLayerAttributeAsm" ], "includePlatforms":[ "Editor" ], "excludePlatforms":[  ]}
