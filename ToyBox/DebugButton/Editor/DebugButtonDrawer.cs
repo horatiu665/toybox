@@ -13,7 +13,7 @@ namespace ToyBoxHHH
     [CustomEditor(typeof(MonoBehaviour), true)]
     public sealed class DebugButtonDrawer : Editor
     {
-        private const string _btnTitle = "<size=14><color=ff7f0f>Debug Buttons</color></size>";
+        private const string _btnTitle = "Debug Buttons";
 
         private class ParamTuple
         {
