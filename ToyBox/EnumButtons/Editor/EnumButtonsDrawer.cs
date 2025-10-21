@@ -7,6 +7,8 @@
     using UnityEditor;
     using UnityEngine;
     using Random = UnityEngine.Random;
+    using EnumButtonsAttribute = ToyBoxHHH.EnumButtonsAttribute;
+
 
     /// <summary>
     /// Draws a one-line sequence of named buttons, that makes a short enum easy to select.
